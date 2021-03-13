@@ -52,23 +52,29 @@ int getDistance(vector<string> nums, string root) {
 	while(!q.empty()) {
 		int size = q.size();
 		for(int i =0; i<size; i++) {
-			string ss = q.back();
+			string ss = q.front();
 			q.pop();
 			if(ss == target) {
 				return distance;
 			}
+			for(string a : deadends) {
+				if(a == ss) {
+					continue;
+				}
+			}
 			for(int j = 0; j<target.length(); j++) {
 				string left = leftNode(ss, j);
 				string right = rightNode(ss, j);
-				if(visited.find(left) != visited.end()) {
+				if(visited.count(left) == 0) {
 					q.push(left);
 					visited.insert(left);
 				}
-				if(visited.find(right) != visited.end()) {
+				if(visited.count(right) == 0) {
 					q.push(right);
 					visited.insert(right);
 				}
 			}
+			
 			
 		}
 		distance++;
