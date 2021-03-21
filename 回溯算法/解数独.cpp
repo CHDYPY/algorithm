@@ -6,7 +6,6 @@
 using namespace std;
 
 vector< vector<int> > board;
-vector< vector<int> > flag(9, vector<int> (9, 0));
 
 bool notRepeat(int row, int col, int num);
 
@@ -50,7 +49,6 @@ void shudu(int row, int col) {
 	if(row == 9) {
 		display();
 		cout << "--------------------------"<< endl;
-		exit(0);
 		return;
 	} else if(col == 9){
 		shudu(row+1, 0);
