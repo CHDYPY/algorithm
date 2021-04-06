@@ -32,12 +32,11 @@ void setdp() {
 void display() {
 	for(int i = 0; i<=N; i++) {
 		for(int j = 0; j<=W; j++) {
-			cout << setiosflags(ios::right) << dp[i][j] << " ";
+			cout <<std::right<<setw(2) << dp[i][j] << " ";
 		} 
 		cout << endl;
 	}
 } 
-
 
 int main() {
 	setdp();
