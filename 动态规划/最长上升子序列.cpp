@@ -6,8 +6,9 @@
 
 using namespace std;
 
-vector<int> s = {10, 9, 2, 5, 3, 7, 101, 18};
+vector<int> s = {4,10,4,3,8,9};
 
+//dp 存的是对于s.size()=n，所有序列元素小于s[n-1]的最大上升子序列的长度 
 vector<int> dp(s.size(), 1);
 
 void setdp() {
@@ -34,6 +35,9 @@ void display() {
 int main() {
 	setdp();
 	display();
-	cout << dp[s.size()-1];
+	int res = 0;
+	for(int i = 0; i<s.size(); i++) {
+		res = dp[i] > res ? dp[i] : res;
+	}
 	return 0;
 }
